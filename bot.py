@@ -7,7 +7,7 @@ from time import sleep
 from random import randint
 from decimal import Decimal
 
-post_params = {'bot_id': '70cce567fc4777e19103540293',
+post_params = {'bot_id': 'your_bot_id',
                'text': "Starting Uniqlo bot"}
 requests.post('https://api.groupme.com/v3/bots/post', params=post_params)
 
@@ -43,7 +43,7 @@ def check_for_price(class_name, sale_price_path, standard_price_path, item_name_
                 item_name = item.find_element_by_xpath(item_name_path).text
                 # print for debugging
                 print(f"new super cheap item ({item_name})")
-                post_params = {'bot_id': '70cce567fc4777e19103540293',
+                post_params = {'bot_id': 'your_bot_id',
                                'text': f"{item_name} on a {round((1-sale_percent)*100,2)}% Sale"}
                 requests.post(
                     'https://api.groupme.com/v3/bots/post', params=post_params)
@@ -52,7 +52,7 @@ def check_for_price(class_name, sale_price_path, standard_price_path, item_name_
 
     except requests.exceptions.RequestException as e:
         # Sends an error message and waits another 60 seconds
-        post_params = {'bot_id': '70cce567fc4777e19103540293',
+        post_params = {'bot_id': 'your_bot_id',
                        'text': "exception " + str(e)}
         requests.post('https://api.groupme.com/v3/bots/post',
                       params=post_params)
