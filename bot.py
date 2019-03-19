@@ -15,6 +15,7 @@ options = se.webdriver.ChromeOptions()
 
 # chrome is set to headless
 options.add_argument('headless')
+options.add_argument('--no-sandbox')
 
 driver = se.webdriver.Chrome(options=options)
 
